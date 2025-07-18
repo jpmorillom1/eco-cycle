@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Ventas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-5">
+    <h2 class="mb-4">Mis Ventas</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Comprador</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.product.name}"></td>
+                <td th:text="${transaction.quantity}"></td>
+                <td th:text="${transaction.buyer.name}"></td>
+                <td th:text="${transaction.status}"></td>
+                <td>
+                    <a th:href="@{/transactions/confirm/{id}(id=${transaction.id})}" 
+                       class="btn btn-success"
+                       th:if="${transaction.status == 'PENDING'}">Confirmar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

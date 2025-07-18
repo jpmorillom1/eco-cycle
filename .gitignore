@@ -1,0 +1,65 @@
+# ========================
+# Proyecto EcoCycle - .gitignore
+# ========================
+
+# Archivos específicos del proyecto
+application.properties
+*.sql
+*.db
+*.log
+
+# Carpeta de imágenes local (ajusta si usas otra ruta en producción)
+C:/EcoCycleUploads/
+
+# ========================
+# Archivos de ayuda y build
+# ========================
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ========================
+# STS / Eclipse
+# ========================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ========================
+# IntelliJ IDEA
+# ========================
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+# ========================
+# NetBeans
+# ========================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ========================
+# VS Code
+# ========================
+.vscode/
+
+# ========================
+# Sistema operativo
+# ========================
+.DS_Store
+Thumbs.db

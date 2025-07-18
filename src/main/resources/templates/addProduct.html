@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle - Agregar Producto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-green-500 to-blue-500 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-bold text-white">EcoCycle</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/products" class="text-white hover:text-gray-200">
+                    <i class="fas fa-home mr-2"></i>Inicio
+                </a>
+                <a href="/my-products" class="text-white hover:text-gray-200">
+                    <i class="fas fa-box mr-2"></i>Mis Productos
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Publicar un Nuevo Producto</h2>
+            
+            <form action="/addProduct" method="post" enctype="multipart/form-data" class="space-y-6">
+                <!-- Nombre -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Nombre del Producto</label>
+                    <input type="text" name="name" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Cantidad -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Cantidad</label>
+                    <input type="number" name="quantity" required min="1"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Estado -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Estado</label>
+                    <select name="status" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+                        <option value="PERECIBLE">Perecible</option>
+                        <option value="NO_PERECIBLE">No Perecible</option>
+                    </select>
+                </div>
+
+                <!-- Fecha de Caducidad -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Fecha de Caducidad</label>
+                    <input type="date" name="expirationDate"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Descripción -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Descripción</label>
+                    <textarea name="description" rows="4"
+                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"></textarea>
+                </div>
+
+                <!-- Imagen -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Imagen del Producto</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
+                        <div class="space-y-1 text-center">
+                            <i class="fas fa-image text-4xl text-gray-400"></i>
+                            <div class="flex text-sm text-gray-600">
+                                <label class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
+                                    <span>Subir imagen</span>
+                                    <input type="file" name="image" accept="image/*" class="sr-only">
+                                </label>
+                                <p class="pl-1">o arrastra y suelta</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF hasta 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="flex space-x-4">
+                    <button type="submit" 
+                            class="flex-1 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300">
+                        <i class="fas fa-plus mr-2"></i>Publicar Producto
+                    </button>
+                    <a href="/my-products" 
+                       class="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition-all duration-300 text-center">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 EcoCycle - Todos los derechos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a EcoCycle</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Verde y azul */
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    </style>
+    <script>
+        // Redirige automáticamente después de 3 segundos
+        setTimeout(function() {
+            window.location.href = "/products";
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Bienvenido, <span th:text="${user.userID}"></span>!</h2>
+        <p>¡Gracias por unirte a EcoCycle! Serás redirigido a la lista de productos en breve.</p>
+    </div>
+</body>
+</html>
